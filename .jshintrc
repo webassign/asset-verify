@@ -1,0 +1,12 @@
+{
+	"undef"     : true,
+	"browser"   : true,
+	"laxbreak"  : true,
+	"laxcomma"  : true,
+	"loopfunc"  : true,
+	"onecase"   : true,
+	"scripturl" : true,
+	"smarttabs" : true,
+	"sub"       : true,
+	"supernew"  : true
+}
