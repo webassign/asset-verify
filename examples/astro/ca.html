@@ -1,0 +1,35 @@
+<script type="text/javascript" src="js/retrograde_motion.js"></script>
+
+<style type="text/css">
+	body, p
+	{
+		margin:0px;
+		padding:0px;
+	}
+	
+	#canvasOuterContainer, #caption, #controls
+	{
+		margin:10px;
+		width:575px;				
+	}
+	
+	#canvasInnerContainer
+	{
+		margin:auto;
+		width:483px;				
+	}			
+</style>
+
+<div id="canvasOuterContainer">
+	<div id="canvasInnerContainer">
+		<canvas id="mainCanvas" width="483" height="689">
+			Canvas is not supported in this browser.  
+		</canvas>
+	</div>
+</div>
+<div id="caption"><p>A planet appears to go through retrograde (westward) motion when it is overtaken and passed by Earth. In this example, Earth, moving faster along its orbit, overtakes and passes Mars, and Mars seems to follow a looping path on the sky.</p></div>
+<div id="controls">
+	<button onclick="External.CAA.startAnimation()">Start Animation</button>
+	<br/>
+	<button onclick="External.CAA.stopAnimation()">Stop Animation</button>	
+</div>

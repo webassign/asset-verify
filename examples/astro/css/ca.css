@@ -1,0 +1,17 @@
+body, p
+{
+	margin:0px;
+	padding:0px;
+}
+
+#canvasOuterContainer, #caption, #controls
+{
+	margin:10px;
+	width:575px;				
+}
+
+#canvasInnerContainer
+{
+	margin:auto;
+	width:483px;				
+}

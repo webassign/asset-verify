@@ -30,11 +30,11 @@ module.exports = function(grunt) {
 					External: false
 				}
 			},
-			all: ['grunt.js', 'astro/js/*.js']
+			all: ['grunt.js', 'examples/astro/js/*.js']
 		},
 		csslint: {
 			base_theme: {
-				src: "astro/css/*.css",
+				src: "examples/astro/css/*.css",
 				rules: {
 					"import": false,
 					"overqualified-elements": 2
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-css');
 
 	// all tasks
-	grunt.registerTask('all', ['jshint', 'nodeunit', 'css']);
+	grunt.registerTask('all', ['jshint', 'nodeunit', 'csslint', 'namespace']);
 
 	grunt.registerTask('namespace', 'Run namespace checking on all js files', function(params) {
 		// get project target

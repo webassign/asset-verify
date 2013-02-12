@@ -14,7 +14,7 @@ exports.testNamespace = function(test){
 	console.log('test');
 
 	// run the code
-	sandbox('astro/js/retrograde_motion.js', context);
+	sandbox('examples/astro/js/retrograde_motion.js', context);
 
 	// remove the publisher namespace
 	delete context.External.CAA;
