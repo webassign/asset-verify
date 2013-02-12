@@ -15,8 +15,11 @@ You are now setup and good to go! Try running `grunt all --target examples/astro
 `target [path]`: specify a path to the target project to test: `--target [path_to_asset]`
 
 `jshint` : perform JS lint checking only
+
 `csslint` : perform CSS lint checking only
+
 `namespace` : perform JS namespace checking only
+
 `all` : perform all checks
 
 
