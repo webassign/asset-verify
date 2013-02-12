@@ -6,7 +6,7 @@ Tool for verifying format of HTML/JS/CSS assets for use in WebAssign questions
 
 You need to have [NodeJS](http://nodejs.org/download/) and [grunt-cli](https://github.com/gruntjs/grunt-cli) installed to run asset-verify.
 
-# Installing asset-verify
+### Installing asset-verify
 
 1. Install [NodeJS](http://nodejs.org/download/) by following the link
 
