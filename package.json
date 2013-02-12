@@ -1,11 +1,11 @@
 {
-  "name": "webassign-html5-compliance",
-  "version": "0.1.0",
-  "dependencies": {
-    "grunt": "0.4.0rc7",
-    "grunt-contrib-jshint": "0.1.0",
-    "grunt-contrib-nodeunit": "0.1.0",
-    "nodeunit": "0.7.4",
-    "grunt-css": "0.5.3"
-  }
+	"name": "asset-verify",
+	"version": "0.1.0",
+	"dependencies": {
+		"grunt": "0.4.0rc7",
+		"grunt-contrib-jshint": "0.1.1rc6",
+		"grunt-contrib-nodeunit": "0.1.2rc6",
+		"nodeunit": "0.7.4",
+		"grunt-css": "0.5.3"
+	}
 }

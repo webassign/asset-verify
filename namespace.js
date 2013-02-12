@@ -11,10 +11,12 @@ exports.testNamespace = function(test){
 			document: {}
 		};
 
-	console.log('test');
-
-	// run the code
-	sandbox('examples/astro/js/retrograde_motion.js', context);
+	// get file paths
+	var paths = global.WebAssign;
+	for (var i in paths) {
+		// run the code in a sandbox but using the same across all files
+		sandbox(paths[i], context);
+	}
 
 	// remove the publisher namespace
 	delete context.External.CAA;
