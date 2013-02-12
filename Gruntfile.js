@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 		// get project target
 		var target = grunt.option('target');
 		if (!target) {
-			grunt.fatal('Must specify a target to run tests on. "--target=[project_name]"');
+			grunt.fatal('Must specify a target to run tests on. "--target [project_name]"');
 		}
 
 		var files = grunt.file.expand(target + '/js/*.js');
