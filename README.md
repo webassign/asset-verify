@@ -4,11 +4,11 @@ Tool for verifying format of HTML/JS/CSS assets for use in WebAssign questions
 
 ## Getting started
 
-You need to have [NodeJS](http://nodejs.org/download/) and [grunt-cli](https://github.com/gruntjs/grunt-cli) installed to run asset-verify.
+You need to have [Node.js](http://nodejs.org/download/) and [grunt-cli](https://github.com/gruntjs/grunt-cli) installed to run asset-verify.
 
 ### Installing asset-verify
 
-1. Install [NodeJS](http://nodejs.org/download/) by following the link
+1. Install [Node.js](http://nodejs.org/download/) by following the link
 
 2. Install [grunt-cli](https://github.com/gruntjs/grunt-cli): `npm install grunt-cli --global`
 
@@ -20,20 +20,18 @@ You need to have [NodeJS](http://nodejs.org/download/) and [grunt-cli](https://g
 
 ## Options
 
-`target [path]`: specify a path to the target project to test: `--target [path_to_asset]`
+`target [path]` specify a path to the target project to test: `--target [path_to_asset]`
 
-`jshint` : perform JS lint checking only
+`jshint` perform JS lint checking only
 
-`csslint` : perform CSS lint checking only
+`csslint` perform CSS lint checking only
 
-`namespace` : perform JS namespace checking only
+`namespace` perform JS namespace checking only
 
-`all` : perform all checks
+`all` perform all checks
 
 
 ## Todo
 
-* parse target path for use in all tasks
-* pass files to namespace task
 * determine proper CSS linting rules
 * add all config options to config file
