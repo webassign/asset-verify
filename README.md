@@ -16,7 +16,7 @@ You need to have [Node.js](http://nodejs.org/download/) and [grunt-cli](https://
 
 4. Navigate to asset-verify root directory and install package dependencies: `npm install`
 
-5. All done! Try running `grunt all --target examples/astro`
+5. All done! Try running `grunt all:popup --target examples/astro`
 
 ## Options
 
@@ -28,10 +28,17 @@ You need to have [Node.js](http://nodejs.org/download/) and [grunt-cli](https://
 
 `namespace` perform JS namespace checking only
 
-`all` perform all checks
+`imagecheck` perform screenshot image checking only
+
+`all:environment` perform all checks for that environment
+
+### Environments
+
+* `popup` asset will be run in a popup window. Checks are more lenient about global variables and namespace
+* `embed` asset will be run embedded in the question. Checks are more stringent.
 
 
 ## Todo
 
-* determine proper CSS linting rules
 * add all config options to config file
+* finish embed configuration

@@ -15,12 +15,16 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		nodeunit: {
-			files: ['namespace.js']
+			embed: {
+				src: ['namespace_embed.js']
+			},
+			popup: {
+				src: ['namespace_popup.js']
+			}
 		},
 		namespace: {
-			files: ['*.js'],
 			options: {
-				foo: 'bar'
+				src: [target + '/js/*.js']
 			}
 		},
 		jshint: {
@@ -35,19 +39,60 @@ module.exports = function(grunt) {
 				smarttabs : true,
 				sub       : true,
 				supernew  : true,
-				globals: {
-					External: false
-				}
 			},
-			all: ['grunt.js', target + '/js/*.js']
+			popup: {
+				options: {
+					globals: {
+						External: true
+					}
+				},
+				src: [target + '/js/*.js']
+			},
+			embed: {
+				options: {
+					globals: {
+						External: false
+					}
+				},
+				src: [target + '/js/*.js']
+			}
 		},
 		csslint: {
-			base_theme: {
+			popup: {
+				src: target + '/css/*.css',
+				rules: {
+					'import'                 : false,
+					'overqualified-elements' : false,
+					'adjoining-classes'      : false,
+					'box-sizing'             : false,
+					'float'                  : false,
+					'font-faces'             : false,
+					'font-sizes'             : false,
+					'qualified-headings'     : false,
+					'unique-headings'        : false,
+					'known-properties'       : 2,
+					'universal-selector'     : 2,
+					'unqualified-attributes' : 2,
+					'box-model'              : false,
+					'ids'                    : false,
+					'imports'                : false,
+					'shorthand'              : false,
+					'text-indent'            : false,
+					'zero-units'             : false
+				}
+			},
+			embed: {
 				src: target + '/css/*.css',
 				rules: {
 					'import': false,
 					'overqualified-elements': 2
 				}
+			}
+		},
+		imagecheck: {
+			options: {
+				path: target,
+				filename: 'screenshot.png'
 			}
 		}
 	});
@@ -58,10 +103,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-css');
 
 	// all tasks
-	grunt.registerTask('all', ['jshint', 'csslint', 'namespace']);
+	grunt.registerTask('all:popup', ['jshint:popup', 'csslint:popup', 'imagecheck']);
+	grunt.registerTask('all:embed', ['jshint:embed', 'csslint:embed', 'namespace:embed']);
 
-	grunt.registerTask('namespace', 'Run namespace checking on all js files', function(params) {
-		var files = grunt.file.expand(target + '/js/*.js');
+	grunt.registerTask('namespace', 'Run namespace checking on all js files', function(task) {
+		var files = grunt.file.expand(this.options().src);
 		var paths = files.map(function(filepath) {
 			return path.resolve(filepath);
 		});
@@ -71,6 +117,24 @@ module.exports = function(grunt) {
 		global.WebAssign = paths;
 
 		// run the nodeunit task
-		grunt.task.run('nodeunit');
+		grunt.task.run('nodeunit:' + task);
+	});
+
+	grunt.registerTask('imagecheck', 'Ensure there is a screenshot', function() {
+		fs = require('fs');
+
+		// check for file
+		var file = this.options().path + '/' + this.options().filename;
+		var found = fs.existsSync(file, function(exists) {
+			return exists;
+		});
+
+		// log any errors and return status
+		if (!found) {
+			grunt.log.error('No file ' + file + ' found');
+		} else {
+			grunt.log.ok('screenshot.png found');
+		}
+		return found;
 	});
 };
